@@ -23,7 +23,10 @@ CREATE TABLE `event` (
   `name` text CHARACTER SET latin1 NOT NULL,
   `series` text CHARACTER SET latin1 NOT NULL,
   `eventNum` int(11) NOT NULL,
-  `live` int(1) NOT NULL
+  `live` int(1) NOT NULL,
+  `enableFastLapBonus` int(11) NOT NULL,
+  `finished` int(11) NOT NULL DEFAULT 0,
+  `winner` text CHARACTER SET latin1 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -77,7 +80,8 @@ CREATE TABLE `scoring` (
   `points` int(3) NOT NULL,
   `inc` int(2) NOT NULL,
   `position` int(2) NOT NULL,
-  `changeRequested` int(1) NOT NULL DEFAULT 0
+  `changeRequested` int(1) NOT NULL DEFAULT 0,
+  `fastLap` text CHARACTER SET latin1 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -92,6 +96,7 @@ CREATE TABLE `users` (
   `admin` int(1) NOT NULL DEFAULT 0,
   `userNum` int(5) NOT NULL,
   `email` text CHARACTER SET latin1 NOT NULL,
+  `wins` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`userNum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -104,6 +109,31 @@ CREATE TABLE `vehicles` (
   `vehicle` text CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+DROP TABLE IF EXISTS `topLap`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `topLap` (
+  `eventNum` int(11) NOT NULL,
+  `weekNum` int(11) NOT NULL,
+  `userNum` int(11) NOT NULL,
+  `laptime` text CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+DROP TABLE IF EXISTS `iComp_schema`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `iComp_schema` (
+  `version` text CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `iComp_schema` WRITE;
+/*!40000 ALTER TABLE `iComp_schema` DISABLE KEYS */;
+INSERT INTO `iComp_schema` VALUES ('1.01');
+/*!40000 ALTER TABLE `iComp_schema` ENABLE KEYS */;
+UNLOCK TABLES;
+
 
 """
 
