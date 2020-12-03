@@ -38,16 +38,16 @@ UNLOCK TABLES;
 ALTER TABLE `event`
   ADD COLUMN `enableFastLapBonus` int(11) NOT NULL AFTER `live`,
   ADD COLUMN `finished` int(11) NOT NULL DEFAULT 0 AFTER `enableFastLapBonus`,
-  ADD COLUMN `winner` text CHARACTER SET latin1 DEFAULT NULL AFTER `winner`
+  ADD COLUMN `winner` text CHARACTER SET latin1 DEFAULT NULL AFTER `winner`;
 
 ALTER TABLE `scoring`
-  ADD COLUMN `fastLap` text CHARACTER SET latin1 DEFAULT NULL AFTER `changeRequested`
+  ADD COLUMN `fastLap` text CHARACTER SET latin1 DEFAULT NULL AFTER `changeRequested`;
 
 ALTER TABLE `users`
-  ADD COLUMN `wins` int(11) NOT NULL DEFAULT 0 AFTER `email`
+  ADD COLUMN `wins` int(11) NOT NULL DEFAULT 0 AFTER `email`;
 """
 
-fh = open("./iComp_createDB.sql",'w')
+fh = open("./iComp_from1-00To1-01.sql",'w')
 fh.write(useDB)
 fh.write(mainScript)
 fh.close()
