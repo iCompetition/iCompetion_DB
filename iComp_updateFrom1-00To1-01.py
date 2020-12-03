@@ -8,11 +8,6 @@ else:
 
 ##Creates .sql file to use to create iComp database
 dbName      = input('Enter Database Name:  ')
-appServerIp = input('IP/URL of Application Server:  ')
-roPwd       = input('password for readonly user:  ')
-altPwd      = input('password for alter user:  ')
-
-createDB = "CREATE DATABASE /*!32312 IF NOT EXISTS*/ `" + dbName + "` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;\n"
 useDB    = "use `" + dbName + "`;\n"
 
 mainScript = """
@@ -53,7 +48,6 @@ ALTER TABLE `users`
 """
 
 fh = open("./iComp_createDB.sql",'w')
-fh.write(createDB)
 fh.write(useDB)
 fh.write(mainScript)
 fh.close()
