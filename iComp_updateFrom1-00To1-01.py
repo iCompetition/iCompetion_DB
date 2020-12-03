@@ -38,7 +38,7 @@ UNLOCK TABLES;
 ALTER TABLE `event`
   ADD COLUMN `enableFastLapBonus` int(11) NOT NULL AFTER `live`,
   ADD COLUMN `finished` int(11) NOT NULL DEFAULT 0 AFTER `enableFastLapBonus`,
-  ADD COLUMN `winner` text CHARACTER SET latin1 DEFAULT NULL AFTER `winner`;
+  ADD COLUMN `winner` text CHARACTER SET latin1 DEFAULT NULL AFTER `finished`;
 
 ALTER TABLE `scoring`
   ADD COLUMN `fastLap` text CHARACTER SET latin1 DEFAULT NULL AFTER `changeRequested`;
