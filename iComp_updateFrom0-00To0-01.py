@@ -31,7 +31,7 @@ CREATE TABLE `iComp_schema` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 LOCK TABLES `iComp_schema` WRITE;
 /*!40000 ALTER TABLE `iComp_schema` DISABLE KEYS */;
-INSERT INTO `iComp_schema` VALUES ('1.01');
+INSERT INTO `iComp_schema` VALUES ('0.01');
 /*!40000 ALTER TABLE `iComp_schema` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -47,11 +47,11 @@ ALTER TABLE `users`
   ADD COLUMN `wins` int(11) NOT NULL DEFAULT 0 AFTER `email`;
 """
 
-fh = open("./iComp_from1-00To1-01.sql",'w')
+fh = open("./iComp_from0-00To0-01.sql",'w')
 fh.write(useDB)
 fh.write(mainScript)
 fh.close()
 
 
-sys.stdout.write('\n\nCreated script at ./iComp_from1-00To1-01.sql\n')
+sys.stdout.write('\n\nCreated script at ./iComp_from0-00To0-01.sql\n')
 sys.stdout.write('Run this script on your mysql server to create database for iCompetition\n')

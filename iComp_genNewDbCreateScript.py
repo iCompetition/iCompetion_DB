@@ -130,7 +130,7 @@ CREATE TABLE `iComp_schema` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 LOCK TABLES `iComp_schema` WRITE;
 /*!40000 ALTER TABLE `iComp_schema` DISABLE KEYS */;
-INSERT INTO `iComp_schema` VALUES ('1.01');
+INSERT INTO `iComp_schema` VALUES ('0.01');
 /*!40000 ALTER TABLE `iComp_schema` ENABLE KEYS */;
 UNLOCK TABLES;
 
