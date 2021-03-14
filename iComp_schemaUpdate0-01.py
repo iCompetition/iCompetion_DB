@@ -47,11 +47,11 @@ ALTER TABLE `users`
   ADD COLUMN `wins` int(11) NOT NULL DEFAULT 0 AFTER `email`;
 """
 
-fh = open("./iComp_from0-00To0-01.sql",'w')
+fh = open("./iComp_schemaUpdate0-01.sql",'w')
 fh.write(useDB)
 fh.write(mainScript)
 fh.close()
 
 
-sys.stdout.write('\n\nCreated script at ./iComp_from0-00To0-01.sql\n')
+sys.stdout.write('\n\nCreated script at ./iComp_schemaUpdate0-01.sql\n')
 sys.stdout.write('Run this script on your mysql server to create database for iCompetition\n')
